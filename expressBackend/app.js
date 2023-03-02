@@ -1,7 +1,9 @@
 import express from 'express';
 const app = express();
 const port = process.env.PORT || 5000;
-import web from './routes/web.js';
+
+import cors from 'cors'
+app.use(cors());
 
 //Database connection
 import connectdb from './db/connectdb';
@@ -11,6 +13,7 @@ connectdb(DATABASE_URL);
 //JSON
 app.use(express.json())
 
+import web from './routes/web.js';
 app.use('/api', web);
 
 app.listen(port, ()=>{
