@@ -1,0 +1,5 @@
+Now we need to connec React with Express so, if the data of Express can come up inside the React app
+then it means the React is Connected with the Express.
+to do so, we can use either:
+-fetch api
+-axios(we gonna use it)(through the express Api(that we created))
