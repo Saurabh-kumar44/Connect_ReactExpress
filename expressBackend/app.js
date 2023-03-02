@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 const port = process.env.PORT || 5000;
 
+//Importing and loading cors
 import cors from 'cors'
 app.use(cors());
 
