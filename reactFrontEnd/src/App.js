@@ -21,6 +21,13 @@ function App() {
   return (
     <div className="App">
       <h1>Connect React to Express</h1>
+      {
+        students.map((student,i)=>{
+          return (
+            <h2 key={i}>{student.stuname} and {student.email}</h2> //using map to show all the data that are coming from express
+          )
+        })
+      }
     </div>
   );
 }
