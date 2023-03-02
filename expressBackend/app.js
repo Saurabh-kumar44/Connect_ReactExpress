@@ -1,18 +1,25 @@
-import express from 'express'
+import express from 'express';
 const app = express();
 const port = process.env.PORT || 3000;
-const DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost:27017";
+import web from './routes/web.js';
 
-import connectDB from './db/connectdb.js';
-connectDB(DATABASE_URL);
+//Database connection
+import connectdb from './db/connectdb';
+const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017';
+connectdb(DATABASE_URL);
 
 //JSON
-app.use(express.json());
+app.use(express.json())
 
-import web from './routes/web.js'
-app.get('/api',web);
+app.use('/api', web);
 
-
-app.listen(port, (req,res)=>{
-    console.log("Listening at port",port);
+app.listen(port, ()=>{
+    console.log("Listening to port",port);
 })
+
+// // error handler
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+// });

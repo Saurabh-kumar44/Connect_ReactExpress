@@ -1,13 +1,18 @@
-import studentModel from '../models/student'
+// var studentController = (req,res)=> {
+//     res.render('index',{Title:"Home"});
+// }
 
-class StudentController{
-    static getAllDoc = async(req,res)=>{
+import studentModel  from "../models/student";
+class studentController {
+    static getAllDoc = async (req,res)=> {
         try{
-            const result = studentModel.find()
+            const result = await studentModel.find();
+            console.log(result);
             res.send(result);
         }catch(err){
-        console.log(err)
-        }
+            console.log(err);
+        } 
     }
-};
-export {StudentController};
+}
+
+export {studentController};

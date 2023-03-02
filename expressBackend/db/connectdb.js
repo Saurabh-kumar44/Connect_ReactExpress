@@ -1,14 +1,15 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const connectDB = async (DATABASE_URL)=>{
-    try{
+    try {
         const DB_OPTIONS = {
-            dbName: 'school,'
+            dbName: 'school',
         }
-        await mongoose.connect(DATABASE_URL, DB_OPTIONS);
-        console.log("Connected successfully");
-    }catch(err){
-        console.log(err);
-    }
+    await mongoose.connect(DATABASE_URL, DB_OPTIONS);
+    console.log("Connected succussfully!!");
+} catch (err) {
+    console.log(err);
+   }
 }
+
 export default connectDB;
